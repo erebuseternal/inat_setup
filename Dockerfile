@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 ubuntu:20.04
+FROM ubuntu:20.04
 MAINTAINER "Marcel Gietzmann-Sanders" "marcelsanders96@gmail.com"
 
 # prevent input prompts
@@ -50,7 +50,7 @@ RUN locale-gen en_US en_US.UTF-8 && \
     dpkg-reconfigure locales
 
 # install ruby 
-RUN . /root/.bashrc && rbenv install 2.6.5
+RUN . /root/.bashrc && rbenv install 3.0.4
 
 # install node
 RUN . /root/.bashrc && nvm install 12.13.0

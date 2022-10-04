@@ -45,11 +45,23 @@ Next you'll need to update the login section of `config/database.yml` to look li
 ```yml
 login: &login
   host: host.docker.internal
-  username: username
-  password: password
   encoding: utf8
   adapter: postgis
   template: template_postgis
+  username: username
+  password: password
+
+development:
+  <<: *login
+  database: inaturalist_development
+
+test:
+  <<: *login
+  database: inaturalist_test
+
+production:
+  <<: *login
+  database: inaturalist_production
 ```
 
 ##### Setting up the Database
@@ -73,7 +85,7 @@ to set everything up.
 ```bash
 npm install
 npm audit
-./node_modules/.bin/gulp webpack
+npm run webpack 
 ```
 
 #### Seed Data
