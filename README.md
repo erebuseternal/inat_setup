@@ -100,3 +100,21 @@ rake inaturalist:generate_translations_js
 ```bash
 rails s -b 127.0.0.1
 ```
+
+### Setting up iNaturalistAPI
+From the `inat_setup` directory:
+```bash
+git clone https://github.com/inaturalist/iNaturalistAPI.git
+cd iNaturalistAPI
+git checkout no-maps
+cp config_example.js config.js
+```
+
+Then 
+- update the postgres user and password to reflect what's in the `database.yml` for the iNaturalist app
+- update the hosts for redis and postgres to be `host.docker.internal`
+
+```bash
+npm install 
+node app.js
+```
